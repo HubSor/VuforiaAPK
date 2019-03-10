@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ciekawostka.cs" />
     <Compile Include="Assets\text.cs" />
     <Compile Include="Assets\UI.cs" />
     <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />

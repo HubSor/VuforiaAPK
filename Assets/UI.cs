@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +13,12 @@ public class UI : MonoBehaviour {
  
     public void Wyswietlciekwersjaostateczna()
     {
-        kawalekuizciekawostka.gameObject.SetActive(!kawalekuizciekawostka.gameObject.activeInHierarchy);
+        var temp = GameObject.FindGameObjectsWithTag("Przedmiot");
+        if (temp.Any(x => x.GetComponent<Renderer>().enabled))
+        { 
+            kawalekuizciekawostka.gameObject.SetActive(!kawalekuizciekawostka.gameObject.activeInHierarchy);
+        }
     }
-    
-    
-
     public void RotateRight()
 	{
 		GameObject.FindGameObjectWithTag("Przedmiot")?.transform?.Rotate(new Vector3(0, 45));
@@ -32,12 +34,18 @@ public class UI : MonoBehaviour {
     private void FixedUpdate()
     {
 		Touches=Input.touches;
-        if (GameObject.FindGameObjectWithTag("Przedmiot") != null)
+        var temp = GameObject.FindGameObjectsWithTag("Przedmiot");
+        if (temp.Any(x => x.GetComponent<Renderer>().enabled))
         {
             ui.SetActive(true);
-            kawalekuizciekawostka.text = GameObject.FindGameObjectWithTag("Przedmiot").GetComponent<text>().tekstciekawostki;
+            var t = temp.First(x => x.GetComponent<Renderer>().enabled);
+            kawalekuizciekawostka.text = t.GetComponent<text>().tekstciekawostki;
         }
-        else ui.SetActive(false);
+        else 
+        {
+            ui.SetActive(false);
+            kawalekuizciekawostka.gameObject.SetActive(false);
+        }
 		// If there are two touches on the device...
 		if (Input.touchCount == 2)
 		{
