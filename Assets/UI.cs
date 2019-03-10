@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour {
 	public Touch[] Touches; 
     public GameObject ui;
 	public float perspectiveZoomSpeed = 0.5f;        // The rate of change of the field of view in perspective mode.
 	public float orthoZoomSpeed = 0.5f; // The rate of change of the orthographic size in orthographic mode.
-	public GameObject ciekawostka;
+    public Text kawalekuizciekawostka;
+ 
+    public void Wyswietlciekwersjaostateczna()
+    {
+        kawalekuizciekawostka.gameObject.SetActive(!kawalekuizciekawostka.gameObject.activeInHierarchy);
+    }
+    
+    
 
-	public void WyswietlCiekawostke()
-	{
-		ciekawostka.SetActive(!ciekawostka.activeInHierarchy);
-	}
-
-
-	public void RotateRight()
+    public void RotateRight()
 	{
 		GameObject.FindGameObjectWithTag("Przedmiot")?.transform?.Rotate(new Vector3(0, 45));
 	}
@@ -30,7 +32,11 @@ public class UI : MonoBehaviour {
     private void FixedUpdate()
     {
 		Touches=Input.touches;
-        if (GameObject.FindGameObjectWithTag("Przedmiot") != null) ui.SetActive(true);
+        if (GameObject.FindGameObjectWithTag("Przedmiot") != null)
+        {
+            ui.SetActive(true);
+            kawalekuizciekawostka.text = GameObject.FindGameObjectWithTag("Przedmiot").GetComponent<text>().tekstciekawostki;
+        }
         else ui.SetActive(false);
 		// If there are two touches on the device...
 		if (Input.touchCount == 2)

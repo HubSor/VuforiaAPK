@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class text : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public string tekstciekawostki;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
