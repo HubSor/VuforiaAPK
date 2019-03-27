@@ -79,7 +79,7 @@ public class UI : MonoBehaviour
 
             // Find the difference in the distances between each frame.
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
-            deltaMagnitudeDiff = deltaMagnitudeDiff / 150;
+            deltaMagnitudeDiff = deltaMagnitudeDiff / 350;
 
             temp.FirstOrDefault(x => x.GetComponent<Renderer>().enabled).transform.localScale += new Vector3(1, 1, 1)* deltaMagnitudeDiff;
 

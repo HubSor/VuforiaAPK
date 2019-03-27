@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/Hubert/Desktop/test9.apk
+C:/Users/Hubert/Desktop/DzienOtwarty.apk
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
