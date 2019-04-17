@@ -18,6 +18,14 @@ public class UI : MonoBehaviour
             kawalekuizciekawostka.gameObject.SetActive(!kawalekuizciekawostka.gameObject.activeInHierarchy);
         }
     }
+    GameObject startmenu, UIon;
+    public void QuitToMenu()
+    {
+        UIon = GameObject.Find("UIVuf");
+        startmenu = GameObject.Find("menu");
+        UIon.SetActive(false);
+        startmenu.SetActive(true);
+    }
 
     private void FixedUpdate()
     {
@@ -57,7 +65,8 @@ public class UI : MonoBehaviour
                 delta.Normalize();
                 delta = delta * 2;
                 //delta = camera.InverseTransformDirection (delta);
-                temp.FirstOrDefault(x => x.GetComponent<Renderer>().enabled).transform.Rotate(-delta * 6);
+                var t = temp.First(x => x.GetComponent<Renderer>().enabled);
+                t.transform.Rotate(-delta * 6);
                 Firsttouch = myTouch;
             }
         }
@@ -78,12 +87,9 @@ public class UI : MonoBehaviour
             float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
 
             // Find the difference in the distances between each frame.
-            float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
-            deltaMagnitudeDiff = deltaMagnitudeDiff / 350;
-
-            temp.FirstOrDefault(x => x.GetComponent<Renderer>().enabled).transform.localScale += new Vector3(1, 1, 1)* deltaMagnitudeDiff;
-
-
+            float deltaMagnitudeDiff = (prevTouchDeltaMag - touchDeltaMag)/350;
+            var t = temp.First(x => x.GetComponent<Renderer>().enabled);
+            t.transform.localScale += new Vector3(1, 1, 1)* deltaMagnitudeDiff;
         }
 #endif
     }

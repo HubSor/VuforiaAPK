@@ -60,8 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Menu.cs" />
     <Compile Include="Assets\text.cs" />
     <Compile Include="Assets\UI.cs" />
+    <None Include="Assets\StreamingAssets\Vuforia\Test.xml" />
     <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
     <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
     <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
@@ -73,7 +75,6 @@
     <None Include="Assets\Vuforia\Shaders\ClippingMask.shader" />
     <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
     <None Include="Assets\Vuforia\Shaders\DepthContour.shader" />
-    <None Include="Assets\StreamingAssets\Vuforia\Test.xml" />
     <None Include="Assets\StreamingAssets\Vuforia\VUFORIAAPK.xml" />
     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
