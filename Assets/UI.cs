@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
     public GameObject ui;
     public Text kawalekuizciekawostka;
     public Touch Firsttouch;
+    public GameObject startmenu, UIon, EXITON;
 
     public void Wyswietlciekwersjaostateczna()
     {
@@ -18,17 +19,19 @@ public class UI : MonoBehaviour
             kawalekuizciekawostka.gameObject.SetActive(!kawalekuizciekawostka.gameObject.activeInHierarchy);
         }
     }
-    GameObject startmenu, UIon;
     public void QuitToMenu()
     {
-        UIon = GameObject.Find("UIVuf");
-        startmenu = GameObject.Find("menu");
         UIon.SetActive(false);
+        EXITON.SetActive(false);
         startmenu.SetActive(true);
     }
 
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+          
+        }
         var temp = GameObject.FindGameObjectsWithTag("Przedmiot");
         if (temp.Any(x => x.GetComponent<Renderer>().enabled))
         {
