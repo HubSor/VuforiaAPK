@@ -6,7 +6,6 @@ public class CiekawostkaIns:Editor
     public override void OnInspectorGUI()
     {
         text temp = (text)target;
-        temp.tekstciekawostki = EditorGUILayout.TextArea("sample text: ", temp.tekstciekawostki);
-            
+        temp.tekstciekawostki = EditorGUILayout.TextArea(temp.tekstciekawostki);  
     }
 }

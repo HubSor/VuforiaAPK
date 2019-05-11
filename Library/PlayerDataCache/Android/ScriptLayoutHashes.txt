@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/Hubert/Desktop/WERSJA 2.0.apk
+C:/Users/Hubert/Desktop/WERSJA 2.1.apk
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
